@@ -37,8 +37,7 @@ public class Bingo {
                     System.out.println("Попробуйте еще:");
 
                 }
-            }
-            catch (NumberFormatException nfe) {
+            } catch (NumberFormatException nfe) {
                 System.out.println("Ошибка ввода");
             }
         }

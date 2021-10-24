@@ -36,10 +36,10 @@ public class Array {
 
             boolean isSorted = false;
             int buf;
-            while(!isSorted) {
+            while (!isSorted) {
                 isSorted = true;
                 for (int i = 0; i < array.length - 1; i++) {
-                    if(array[i] > array[i+1]){
+                    if (array[i] > array[i + 1]) {
                         isSorted = false;
                         buf = array[i];
                         array[i] = array[i + 1];
@@ -49,8 +49,7 @@ public class Array {
             }
             System.out.println("Отсортированный массив");
             System.out.println(Arrays.toString(array));
-        }
-        catch (InputMismatchException nfe) {
+        } catch (InputMismatchException nfe) {
             System.out.println("Ошибка ввода");
         }
 
