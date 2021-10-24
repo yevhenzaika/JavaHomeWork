@@ -9,7 +9,7 @@ public class Bingo {
         Scanner in = new Scanner(System.in);
 
         int bingo = random.nextInt(101);
-        int count = 1;
+        int count = 0;
         String str;
 
         System.out.println("bingo: " + bingo);
@@ -18,7 +18,7 @@ public class Bingo {
         System.out.println("Введите целое число: ");
 
         for (; ; ) {
-
+            count++;
             str = in.next();
 
             if (str.equals("exit")) {
@@ -35,7 +35,7 @@ public class Bingo {
                     else
                         System.out.println("Больше");
                     System.out.println("Попробуйте еще:");
-                    count++;
+
                 }
             }
             catch (NumberFormatException nfe) {
