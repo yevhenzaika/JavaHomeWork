@@ -3,10 +3,18 @@ package com.pb.zayka.hw5;
 public class Reader {
 
     private String fullName;
-    private int cardNumber;
+    private String cardNumber;
     private String faculty;
     private String dateOfBirth;
     private String phoneNumber;
+
+    public Reader(String fullName, String cardNumber, String faculty, String dateOfBirth, String phoneNumber) {
+        this.fullName = fullName;
+        this.cardNumber = cardNumber;
+        this.faculty = faculty;
+        this.dateOfBirth = dateOfBirth;
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getFullName() {
         return fullName;
@@ -16,11 +24,11 @@ public class Reader {
         this.fullName = fullName;
     }
 
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
@@ -59,7 +67,27 @@ public class Reader {
         System.out.println(fullName + " взял книги: " + sb.toString());
     }
 
-    public void takeBook(Book... book) {
-
+    public void takeBook(Book... books) {
+        System.out.print(fullName + " взял книги: " );
+        for (Book x: books)
+            System.out.print(x.getTitle().toString() + " (" + x.getAuthor().toString() + " " + x.getPublished().toString() + "), ");
     }
+
+    public void returnBook(int books) {
+        System.out.println(fullName + " вернул " + books + " книги");
+    }
+
+    public void returnBook(String... books) {
+        StringBuilder sb = new StringBuilder();
+        for (String book : books)
+            sb.append(book).append(". ");
+        System.out.println(fullName + " вернул книги: " + sb.toString());
+    }
+
+    public void returnBook(Book... books) {
+        System.out.print(fullName + " вернул книги: " );
+        for (Book x: books)
+            System.out.print(x.getTitle().toString() + " (" + x.getAuthor().toString() + " " + x.getPublished().toString() + "), ");
+    }
+
 }
