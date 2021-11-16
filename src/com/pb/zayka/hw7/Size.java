@@ -26,8 +26,8 @@ public enum Size {
 
     @Override
     public String toString() {
-        return description + '\t'
+        return '\'' + description + '\t'
                 + this.name() + '\t'
-                + euroSize;
+                + euroSize + '\'';
     }
 }
