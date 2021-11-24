@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class FileNumbers {
     public static void main(String[] args) {
@@ -36,7 +35,7 @@ public class FileNumbers {
     public static void createOddNumbersFile() {
 
         Path path = Paths.get("src/com/pb/zayka/hw9/numbers.txt");
-        String lineNum = "";
+        StringBuilder lineNum = new StringBuilder();
 
         // read from file
         System.out.println("Read text from file \"" + path.toAbsolutePath().normalize() + "\":");
@@ -52,24 +51,18 @@ public class FileNumbers {
                     }
                 }
 
-                for (int i = 0; i < arrayStr.length; i++) {
-                    lineNum += arrayStr[i] + " ";
+                for (String s : arrayStr) {
+                    lineNum.append(s).append(" ");
                 }
-                //System.out.println(Arrays.toString(arrayStr));
-                //System.out.println(line);
-
             }
-
         } catch (Exception ex) {
             System.out.println("Error with file read: " + ex);
         }
         System.out.println("Read from file done!");
 
         path = Paths.get("src/com/pb/zayka/hw9/odd-numbers.txt");
-        String[] arrayStr = lineNum.split(" ");
+        String[] arrayStr = lineNum.toString().split(" ");
 
-
-        StringBuilder sb = new StringBuilder();
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (int i = 0; i < 100; i++) {
                 if (i % 10 == 0 && i != 0) {
